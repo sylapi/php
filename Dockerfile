@@ -6,7 +6,7 @@ WORKDIR /var/www
 
 # Run the command inside your image filesystem.
 RUN apt-get update
-RUN apt-get install -qy --allow-unauthenticated --no-install-recommends\
+RUN apt-get install -qy --allow-unauthenticated --no-install-recommends \
     unzip \
     imagemagick \
     git \
