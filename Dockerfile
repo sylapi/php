@@ -6,7 +6,7 @@ WORKDIR /var/www
 
 # Run the command inside your image filesystem.
 RUN apt-get update
-RUN apt-get install -qy --allow-unauthenticated --no-install-recommends \
+RUN apt-get install -qy --allow-unauthenticated \
     unzip \
     imagemagick \
     git \
@@ -38,9 +38,6 @@ RUN docker-php-ext-install pdo_mysql gmp bcmath pcntl intl zip
 RUN docker-php-ext-install opcache
 
 RUN docker-php-ext-enable imagick
-
-RUN apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
-	rm -rf /var/lib/apt/lists/*;
 
 RUN { \
 		echo 'opcache.memory_consumption=128'; \
